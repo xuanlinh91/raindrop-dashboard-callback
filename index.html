@@ -9,7 +9,7 @@
             const code = urlParams.get('code');
             if (code) {
                 // Send the authorization code to the Chrome extension
-                chrome.runtime.sendMessage('olmliaphmhdaecjdppiagmcmkodjibpo', {authorizationCode: code}, function(response) {
+                chrome.runtime.sendMessage({authorizationCode: code}, function(response) {
                     console.log(response);
                     // expand to body do not override body content
                     document.body.innerHTML = 'Code: ' + code + '<br>Response: ' + JSON.stringify(response);
