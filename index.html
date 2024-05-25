@@ -13,8 +13,9 @@
                     console.log(response);
                     // expand to body do not override body content
                     document.body.innerHTML = 'Code: ' + code + '<br>Response: ' + JSON.stringify(response);
-                    if (response.success) {
+                    if (response.result === 'success') {
                         // Redirect to the extension's dashboard
+                        console.log("redirecting")
                         window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo';
                     }
                 });
