@@ -7,11 +7,14 @@
             // Parse the URL parameters
             const urlParams = new URLSearchParams(window.location.search);
             const code = urlParams.get('code');
+            document.body.innerHTML = 'Code: ' + code;
 
             if (code) {
                 // Send the authorization code to the Chrome extension
                 chrome.runtime.sendMessage('olmliaphmhdaecjdppiagmcmkodjibpo', {authorizationCode: code}, function(response) {
                     console.log(response);
+                    // write to body
+                    document.body.innerHTML = 'Response: ' + JSON.stringify(response);
                 });
             }
         });
