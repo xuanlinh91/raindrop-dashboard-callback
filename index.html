@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OAuth Redirect</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parse the URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+
+            if (code) {
+                // Send the authorization code to the Chrome extension
+                chrome.runtime.sendMessage('olmliaphmhdaecjdppiagmcmkodjibpo', {authorizationCode: code}, function(response) {
+                    console.log(response);
+                });
+            }
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
