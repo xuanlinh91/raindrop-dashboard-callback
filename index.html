@@ -9,16 +9,17 @@
             const code = urlParams.get('code');
             if (code) {
                 // Send the authorization code to the Chrome extension
-                chrome.runtime.sendMessage('olmliaphmhdaecjdppiagmcmkodjibpo', {authorizationCode: code}, function (response) {
-                    console.log(response);
-                    // expand to body do not override body content
-                    document.body.innerHTML = 'Code: ' + code + '<br>Response: ' + JSON.stringify(response);
-                    if (response.result === 'success') {
-                        // Redirect to the extension's dashboard
-                        console.log("redirecting")
-                        window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo';
-                    }
-                });
+                window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo' + '?authorizationCode=' + code;
+                // chrome.runtime.sendMessage('olmliaphmhdaecjdppiagmcmkodjibpo', {authorizationCode: code}, function (response) {
+                //     console.log(response);
+                //     // expand to body do not override body content
+                //     document.body.innerHTML = 'Code: ' + code + '<br>Response: ' + JSON.stringify(response);
+                //     if (response.result === 'success') {
+                //         // Redirect to the extension's dashboard
+                //         console.log("redirecting")
+                //         window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo';
+                //     }
+                // });
             }
         });
     </script>
