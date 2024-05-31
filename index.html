@@ -10,16 +10,17 @@
             if (code) {
                 // Send the authorization code to the Chrome extension
                 document.body.innerHTML = 'Code: ' + code;
-                // count down 5 seconds to redirect to extension, show the count-down number on the page
-                let count = 5;
-                const interval = setInterval(() => {
-                    count--;
-                    document.body.innerHTML = 'Code: ' + code + '<br>Redirecting to extension in ' + count + ' seconds';
-                    if (count === 0) {
-                        clearInterval(interval);
-                        window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo' + '?authorizationCode=' + code;
-                    }
-                }, 1000);
+                window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo' + '?authorizationCode=' + code;
+                // // count down 5 seconds to redirect to extension, show the count-down number on the page
+                // let count = 5;
+                // const interval = setInterval(() => {
+                //     count--;
+                //     document.body.innerHTML = 'Code: ' + code + '<br>Redirecting to extension in ' + count + ' seconds';
+                //     if (count === 0) {
+                //         clearInterval(interval);
+                //         window.location.href = 'chrome-extension://olmliaphmhdaecjdppiagmcmkodjibpo' + '?authorizationCode=' + code;
+                //     }
+                // }, 1000);
             }
         });
     </script>
